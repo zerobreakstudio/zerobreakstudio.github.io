@@ -1,0 +1,122 @@
+/* Zero Break Studio のサイト共通のスタイル。明るい・暗い表示の両方に対応する */
+:root {
+  --bg: #F5F9FC;
+  --surface: #FFFFFF;
+  --text: #1C2733;
+  --muted: #5B6B7A;
+  --line: #D9E3EC;
+  --accent: #1E9BE0;
+  --accent-strong: #0B6FB0;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #11181F;
+    --surface: #1A232C;
+    --text: #E6EDF3;
+    --muted: #9AA9B7;
+    --line: #2C3945;
+    --accent: #4DB4F0;
+    --accent-strong: #8CCFF7;
+    color-scheme: dark;
+  }
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Hiragino Sans", "Noto Sans JP", "Yu Gothic", system-ui, sans-serif;
+  line-height: 1.75;
+}
+
+.wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 32px 16px 64px;
+}
+
+header.site {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--line);
+  margin-bottom: 32px;
+}
+
+header.site a.brand {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+header.site nav a { margin-left: 16px; }
+
+a { color: var(--accent-strong); }
+
+h1 { font-size: 1.75rem; line-height: 1.3; margin: 0 0 8px; }
+h2 { font-size: 1.25rem; margin: 40px 0 8px; }
+h3 { font-size: 1.05rem; margin: 28px 0 4px; }
+
+.lead { color: var(--muted); margin-top: 0; }
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 20px;
+}
+
+.app {
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+.app img {
+  width: 72px;
+  height: 72px;
+  border-radius: 16px;
+  flex-shrink: 0;
+}
+
+.app h3 { margin: 0; }
+.app p { margin: 4px 0 0; color: var(--muted); }
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 8px 0;
+  font-size: 0.95rem;
+}
+
+th, td {
+  text-align: left;
+  vertical-align: top;
+  padding: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+th { color: var(--muted); font-weight: 600; }
+
+.lang-switch { font-size: 0.95rem; }
+
+footer {
+  margin-top: 56px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+  table, thead, tbody, tr, th, td { font-size: 0.9rem; }
+  header.site { flex-direction: column; align-items: flex-start; }
+  header.site nav a { margin: 0 16px 0 0; }
+}
